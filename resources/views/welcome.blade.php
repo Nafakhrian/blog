@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+    <title>UTS</title>
+</head>
+
+<body onload="readTask()">
+
+    <nav class="navbar navbar-light bg-primary mb-4">
+        <span class="navbar-brand mb-0 h1">Arsip Buku</span>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="firstSection">
+                <form class="border p-4 mb-4" id="form" autocomplete="off">
+                    <div class="form-group">
+                        <label>Judul Buku</label>
+                        <input type="text" class="form-control" name="task" id="task" placeholder="Masukan Judul Buku">
+                    </div>
+                     <div class="form-group">
+                        <label>Kode Buku</label>
+                        <input type="text" class="form-control" name="kode" id="kode" placeholder="Masukan Kode">
+                    </div>
+                     <div class="form-group">
+                        <label>Kategori Buku</label>
+                        <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Masukan Kategori">
+                    </div>
+                    <div class="form-group">
+                        <label>Penerbit</label>
+                        <input type="text" class="form-control" name="description" id="description" placeholder="Masukan Penerbit">
+                    </div>
+                     <div class="form-group">
+                        <label>Penulis</label>
+                        <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Masukan Penulis">
+                    </div>
+                    <div class="form-group">
+                        <label>Sinopsis</label>
+                        <input type="text" class="form-control" name="pen" id="pen" placeholder="Masukan Sinopsis">
+                    </div>
+
+                    <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i>ADD
+                        TASK</button>
+                    <button style="display:none" id="button2" class="btn btn-success">Update Task</button>
+                    <button style="display:none" id="button3" class="btn btn-danger">Cancel</button>
+                </form>
+            </div>
+            <div class="col-md-6" id="cardSection">
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
