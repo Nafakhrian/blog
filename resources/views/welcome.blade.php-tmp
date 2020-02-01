@@ -18,42 +18,43 @@
 <body onload="readTask()">
 
     <nav class="navbar navbar-light bg-primary mb-4">
-        <span class="navbar-brand mb-0 h1">Arsip Buku</span>
+        <span class="navbar-brand mb-0 h1">Data Karyawan</span>
     </nav>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6" id="firstSection">
+            <div class="col-md-10" id="firstSection" style="margin: 0 auto;">
                 <form class="border p-4 mb-4" id="form" autocomplete="off">
-                    <div class="form-group">
-                        <label>Judul Buku</label>
-                        <input type="text" class="form-control" name="task" id="task" placeholder="Masukan Judul Buku">
-                    </div>
-                     <div class="form-group">
-                        <label>Kode Buku</label>
-                        <input type="text" class="form-control" name="kode" id="kode" placeholder="Masukan Kode">
-                    </div>
-                     <div class="form-group">
-                        <label>Kategori Buku</label>
-                        <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Masukan Kategori">
-                    </div>
-                    <div class="form-group">
-                        <label>Penerbit</label>
-                        <input type="text" class="form-control" name="description" id="description" placeholder="Masukan Penerbit">
-                    </div>
-                     <div class="form-group">
-                        <label>Penulis</label>
-                        <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Masukan Penulis">
-                    </div>
-                    <div class="form-group">
-                        <label>Sinopsis</label>
-                        <input type="text" class="form-control" name="pen" id="pen" placeholder="Masukan Sinopsis">
-                    </div>
 
-                    <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i>ADD
-                        TASK</button>
-                    <button style="display:none" id="button2" class="btn btn-success">Update Task</button>
-                    <button style="display:none" id="button3" class="btn btn-danger">Cancel</button>
+                    <!-- @if (!empty($filltable)) -->
+                    <table align="center" border="1">
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th width="80px">ID</th>
+                                <th width="150px">NIK</th>
+                                <th width="200px">Nama</th>
+                                <th width="200px">Alamat</th>
+                                <th width="250px">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($filltable as $table)
+                            <tr style="text-align: center;">
+                                <td>{{ $table->id }}</td>
+                                <td>{{ $table->nik }}</td>
+                                <td>{{ $table->nama }}</td>
+                                <td>{{ $table->alamat }}</td>
+                                <td>{{ $table->email }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    <!-- @else -->
+                    <h2>Tidak ada data karyawan</h2>
+
+                    <!-- @endif -->
+
                 </form>
             </div>
             <div class="col-md-6" id="cardSection">
@@ -61,7 +62,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
