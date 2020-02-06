@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Karyawan;
+use Illuminate\Http\Request;
 
 class karyawancontroller extends Controller {
 	public function welcome() {
@@ -10,5 +11,25 @@ class karyawancontroller extends Controller {
 		$table     = 'karyawan';
 		$filltable = Karyawan::all();
 		return view('welcome', compact('table', 'filltable'));
+	}
+
+	public function create() {
+		return view('create');
+	}
+
+	public function store(Request $request) {
+		$this->validate($request, [
+				'nik'    => 'required',
+				'nama'   => 'required',
+				'alamat' => 'required',
+				'email'  => 'required'
+			]);
+		Karyawan::create([
+				'nik'    => $request->nik,
+				'nama'   => $request->nama,
+				'alamat' => $request->alamat,
+				'email'  => $request->email
+			]);
+		return redirect('/welcome');
 	}
 }

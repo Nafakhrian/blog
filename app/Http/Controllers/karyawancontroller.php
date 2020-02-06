@@ -13,4 +13,24 @@ class karyawancontroller extends Controller
     	$filltable = Karyawan::all();
     	return view('welcome', compact('table', 'filltable'));
 	}
+
+	public function create() {	
+    	return view('create');
+	}
+
+	public function store(Request $request) {	
+		$this->validate($request, [
+			'nik' => 'required',
+			'nama' => 'required',
+			'alamat' => 'required',
+			'email' => 'required'
+		]);
+		Karyawan::create([
+			'nik' => $request->nik,
+			'nama' => $request->nama,
+			'alamat' => $request->alamat,
+			'email' => $request->email
+		]);
+		return redirect('/welcome');
+	}
 }

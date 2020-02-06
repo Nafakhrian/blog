@@ -21,7 +21,13 @@
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
         <div class="col-md-12" style="height: 40px; font-size: 15pt; margin-top: 10px">
             <center>
-                Data Karyawan NF-Corp.
+                <style>
+                    #aa:link {color: black; text-decoration: none;}
+                    #aa:visited {color: black; text-decoration: none;}
+                    #aa:hover {color: black; text-decoration: none;}
+                    #aa:active {color: black; text-decoration: none;}
+                </style>
+                <a href="{{ url('welcome') }}" id="aa"> Data Karyawan NF-Corp. </a>
             </center>
         </div>
     </nav>

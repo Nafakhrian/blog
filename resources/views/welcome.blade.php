@@ -11,10 +11,10 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Tabel karyawan</h6>
-                  <div class="col-md-1">
+                  <div class="col-md-2">
                       <fieldset>
-                        <div id="box2">
-                            <button class="btn btn-primary" name="btn-insert"> Insert</button>
+                        <div id="box2" style="margin-left: 80px">
+                            <a class="btn btn-primary" name="btn-insert" href="{{ url('create') }}"> Insert Baru</a>
                         </div>
                       </fieldset>
                   </div>
@@ -28,7 +28,7 @@
                     <table align="center" border="1">
                         <thead>
                             <tr style="text-align: center;">
-                                <th width="80px">ID</th>
+                                <th width="80px" style="height: 40px">ID</th>
                                 <th width="150px">NIK</th>
                                 <th width="200px">Nama</th>
                                 <th width="200px">Alamat</th>
@@ -44,8 +44,8 @@
                                 <td>{{ $table->nama }}</td>
                                 <td>{{ $table->alamat }}</td>
                                 <td>{{ $table->email }}</td>
-                                <td><button class="btn btn-info" name="btn-update" style="margin: 5px; margin-right: 0px;"> Update</button>
-                                    <button class="btn btn-danger" name="btn-delete" style="margin: 5px; margin-left: 0px"> Delete</button></td>
+                                <td><button class="btn btn-info" name="btn-update" style="margin: 5px; margin-right: 0px;" disabled="true"> Update</button>
+                                    <button class="btn btn-danger" name="btn-delete" style="margin: 5px; margin-left: 0px" disabled="true"> Delete</button></td>
                             </tr>
                             @endforeach
                         </tbody>
