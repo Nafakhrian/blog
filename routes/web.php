@@ -17,4 +17,4 @@ Route::get('/create', 'karyawancontroller@create');
 Route::post('/store', 'karyawancontroller@store');
 Route::get('/delete/{id}', 'karyawancontroller@delete');
 Route::get('/update/{id}', 'karyawancontroller@update');
-Route::post('/updateStore', 'karyawancontroller@updateStore');
+Route::post('/updateStore/{id}', 'karyawancontroller@updateStore');

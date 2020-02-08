@@ -28,7 +28,7 @@ class karyawancontroller extends Controller
 			'alamat' => 'required',
 			'email' => 'required',
 			'divisi' => 'required',
-			'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+			'foto' => 'required|image|mimes:jpeg,png,jpg|max:4096'
 		]);
 
 		$file = $request->file('foto');
@@ -64,19 +64,42 @@ class karyawancontroller extends Controller
     	return view('update', compact('datas'));
 	}
 
-	public function updateStore(Request $request){
+	public function updateStore($id,Request $request){
+		$this->validate($request, [
+			'nik' => 'required',
+			'nama' => 'required',
+			'alamat' => 'required',
+			'email' => 'required',
+			'divisi' => 'required',
+			'foto' => 'required|image|mimes:jpeg,png,jpg|max:4096'
+		]);
 
-		$id = $request['id'];
+		$table = Karyawan::find($id);
 
-    	$update = Karyawan::where('id', $id)->first();
-        $update->nik =  $request['nik'];
-        $update->nama = $request['nama'];
-        $update->alamat = $request['alamat'];
-        $update->email = $request['email'];
-        $update->divisi = $request['divisi'];
-        $update->foto = $request['foto'];
+		if ($file = $request->file('foto')) {
+			$usedImageKaryawan = public_path("uploads/{ $table->foto }");
 
-        $update->update();
+			if (File::exists($usedImageKaryawan)) {
+				unlink($usedImageKaryawan);
+			}
+
+			$destinationPath = 'uploads/';
+			$imageKaryawan = $request->nik . '_' . date('dmY') . '.' . $file->getClientOriginalExtension();
+			$file->move($destinationPath, $imageKaryawan);
+
+
+			$id = $request['id'];
+	    	$update = Karyawan::where('id', $id)->first();
+	        $update->nik =  $request['nik'];
+	        $update->nama = $request['nama'];
+	        $update->alamat = $request['alamat'];
+	        $update->email = $request['email'];
+	        $update->divisi = $request['divisi'];
+	        $update->foto = $insert['foto'] = "$imageKaryawan";
+
+	        $update->update();
+		}
+
 
     	return redirect('welcome');
 	}
