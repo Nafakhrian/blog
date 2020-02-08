@@ -15,7 +15,7 @@
     <title>NF-Corp</title>
 </head>
 
-<body onload="readTask()" style="background-color: #e6e6e6">
+<body style="background-color: #e6e6e6">
 
 	<!-- top bar -->
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">

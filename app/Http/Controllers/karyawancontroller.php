@@ -31,6 +31,7 @@ class karyawancontroller extends Controller
 			'alamat' => $request->alamat,
 			'email' => $request->email
 		]);
-		return redirect('/welcome');
+
+    	return redirect('welcome');
 	}
 }

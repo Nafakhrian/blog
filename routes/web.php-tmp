@@ -13,5 +13,5 @@
 Route::get('/', 'karyawancontroller@welcome');
 Route::get('/welcome', 'karyawancontroller@welcome');
 
-Route::get('create', 'karyawancontroller@create');
-Route::post('store', 'karyawancontroller@store');
+Route::get('/create', 'karyawancontroller@create');
+Route::post('/store', 'karyawancontroller@store');
