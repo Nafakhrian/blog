@@ -15,7 +15,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
 
-                    <form class="p-4 mb-4" method="post" action="{{ url('/updateStore') }}" autocomplete="off">
+                    <form class="p-4 mb-4" method="post" action="{{ url('/updateStore') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                         <div class="col-md-6">
                         <div class="form-group">
@@ -37,7 +37,33 @@
                             <label>Email</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Masukan Email" value="{{ $datas->email }}" required>
                         </div>
-
+                        <div class="form-group">
+                            <label>Divisi</label>
+                            <select class="form-control" id="divisi" name="divisi">
+                                <option value="" hidden>Select Role</option>
+                                @if( $datas->divisi == '1')
+                                    <option value="1" selected>Desain</option>
+                                    <option value="2">Programmer</option>
+                                    <option value="3">Sales</option>
+                                @elseif( $datas->divisi == '2')
+                                    <option value="1">Desain</option>
+                                    <option value="2" selected>Programmer</option>
+                                    <option value="3">Sales</option>
+                                @elseif( $datas->divisi == '3')
+                                    <option value="1">Desain</option>
+                                    <option value="2">Programmer</option>
+                                    <option value="3" selected>Sales</option>
+                                @else
+                                    <option value="1">Desain</option>
+                                    <option value="2">Programmer</option>
+                                    <option value="3">Sales</option>
+                                @endif
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Foto</label><br>
+                            <img src="{{ url('uploads/'.$datas->foto) }}" width="300px"/>
+                        </div>
                         <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i> UPDATE</button>
                         </div>
 

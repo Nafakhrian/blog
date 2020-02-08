@@ -15,7 +15,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
 
-                    <form class="p-4 mb-4" method="post" action="{{ url('/store') }}" autocomplete="off">
+                    <form class="p-4 mb-4" method="post" action="{{ url('/store') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                         <div class="col-md-6">
                         <div class="form-group">
@@ -34,7 +34,19 @@
                             <label>Email</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Masukan Email" required>
                         </div>
-
+                        <div class="form-group">
+                            <label>Divisi</label>
+                            <select class="form-control" id="divisi" name="divisi">
+                                <option value="" hidden>Select Role</option>
+                                <option value="1">Desain</option>
+                                <option value="2">Programmer</option>
+                                <option value="3">Sales</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Foto</label><br>
+                            <input type="file" name="foto" id="foto" accept=".jpg, .png">
+                        </div>
                         <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i> INSERT</button>
                         </div>
 
