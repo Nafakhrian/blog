@@ -33,4 +33,12 @@ class karyawancontroller extends Controller {
 
 		return redirect('welcome');
 	}
+
+	public function delete($id) {
+
+		$delete = Karyawan::find($id);
+		$delete->delete();
+
+		return redirect('welcome');
+	}
 }

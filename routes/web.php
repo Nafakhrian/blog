@@ -15,3 +15,4 @@ Route::get('/welcome', 'karyawancontroller@welcome');
 
 Route::get('/create', 'karyawancontroller@create');
 Route::post('/store', 'karyawancontroller@store');
+Route::get('/delete/{id}', 'karyawancontroller@delete');
