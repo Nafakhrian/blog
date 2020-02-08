@@ -44,7 +44,7 @@
                                 <td>{{ $table->nama }}</td>
                                 <td>{{ $table->alamat }}</td>
                                 <td>{{ $table->email }}</td>
-                                <td><a class="btn btn-info" name="btn-update" style="margin: 5px; margin-right: 0px; color: #fff" href="#"> Update</a>
+                                <td><a class="btn btn-info" name="btn-update" style="margin: 5px; margin-right: 0px; color: #fff" href="{{ url('/update', $table->id) }}"> Update</a>
                                     <a class="btn btn-danger" name="btn-delete" style="margin: 5px; margin-left: 0px" href="{{ url('/delete', $table->id) }}"> Delete</a></td>
                             </tr>
                             @endforeach

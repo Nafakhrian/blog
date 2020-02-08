@@ -40,6 +40,8 @@
         <div class="container my-auto">
           	<div class="copyright text-center my-auto">
             	<span>Copyright &copy; NF-Corp 2020</span>
+                <br>
+                <br>
           	</div>
         </div>
     </footer>

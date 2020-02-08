@@ -42,4 +42,27 @@ class karyawancontroller extends Controller
 
     	return redirect('welcome');
 	}
+
+	public function update($id){
+		$datas = Karyawan::select('id', 'nik', 'nama', 'alamat', 'email')
+                    ->where('id', '=', $id)
+    				->first();
+
+    	return view('update', compact('datas'));
+	}
+
+	public function updateStore(Request $request){
+
+		$id = $request['id'];
+
+    	$update = Karyawan::where('id', $id)->first();
+        $update->nik =  $request['nik'];
+        $update->nama = $request['nama'];
+        $update->alamat = $request['alamat'];
+        $update->email = $request['email'];
+
+        $update->update();
+
+    	return redirect('welcome');
+	}
 }
