@@ -10,7 +10,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Insert Tabel karyawan</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Insert Tabel Karyawan</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -48,9 +48,12 @@
                             <label>Divisi</label>
                             <select class="form-control" id="divisi" name="divisi">
                                 <option value="" hidden>Select Role</option>
-                                <option value="1">Desain</option>
+                                @foreach($divisi as $div)
+                                    <option value="{{ $div->id_div }}">{{ $div->nama_div }}</option>
+                                @endforeach
+                                <!-- <option value="1">Desain</option>
                                 <option value="2">Programmer</option>
-                                <option value="3">Sales</option>
+                                <option value="3">Sales</option> -->
                             </select>
                         </div>
                         <div class="form-group">

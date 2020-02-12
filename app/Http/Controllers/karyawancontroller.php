@@ -8,15 +8,18 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Karyawan;
+use App\Divisi;
 
 class karyawancontroller extends Controller
 {
     public function welcome() {
 
     	$filltable = Karyawan::all();
-    	$filltable = Karyawan::paginate(2);
-    	return view('welcome', ['filltable' => $filltable]);
+    	$filltable = Karyawan::paginate(3);
+    	$divisi = Divisi::all();
+    	return view('welcome', ['filltable' => $filltable], compact('filltable', 'divisi'));
 	}
 
 	public function search(Request $request) {
@@ -32,7 +35,8 @@ class karyawancontroller extends Controller
 	}
 
 	public function create() {	
-    	return view('create');
+		$divisi = Divisi::all();
+    	return view('create', compact('divisi'));
 	}
 
 	public function store(Request $request) {	
@@ -74,8 +78,8 @@ class karyawancontroller extends Controller
 		$datas = Karyawan::select('id', 'nik', 'nama', 'alamat', 'email', 'divisi','foto')
                     ->where('id', '=', $id)
     				->first();
-
-    	return view('update', compact('datas'));
+    	$divisi = Divisi::all();
+    	return view('update', compact('datas', 'divisi'));
 	}
 
 	public function updateStore($id,Request $request){

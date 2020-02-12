@@ -51,23 +51,9 @@
                             <label>Divisi</label>
                             <select class="form-control" id="divisi" name="divisi">
                                 <option value="" hidden>Select Role</option>
-                                @if( $datas->divisi == '1')
-                                    <option value="1" selected>Desain</option>
-                                    <option value="2">Programmer</option>
-                                    <option value="3">Sales</option>
-                                @elseif( $datas->divisi == '2')
-                                    <option value="1">Desain</option>
-                                    <option value="2" selected>Programmer</option>
-                                    <option value="3">Sales</option>
-                                @elseif( $datas->divisi == '3')
-                                    <option value="1">Desain</option>
-                                    <option value="2">Programmer</option>
-                                    <option value="3" selected>Sales</option>
-                                @else
-                                    <option value="1">Desain</option>
-                                    <option value="2">Programmer</option>
-                                    <option value="3">Sales</option>
-                                @endif
+                                @foreach($divisi as $div)
+                                    <option value="{{ $div->id_div }}" {{ ($datas->divisi == $div->id_div) ? 'selected' : ''}} >{{ $div->nama_div }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">

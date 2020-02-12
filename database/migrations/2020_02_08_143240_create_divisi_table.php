@@ -18,7 +18,7 @@ class CreateDivisiTable extends Migration
             // $table->timestamps();
 
             $table->increments('id_div');
-            $table->string('nama_div', 30);
+            $table->string('nama_div', 30)->index();
             $table->timestamps();
         });
     }
