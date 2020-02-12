@@ -12,6 +12,7 @@
 */
 Route::get('/', 'karyawancontroller@welcome');
 Route::get('/welcome', 'karyawancontroller@welcome');
+Route::get('/search', 'karyawancontroller@search');
 
 Route::get('/create', 'karyawancontroller@create');
 Route::post('/store', 'karyawancontroller@store');

@@ -72,10 +72,12 @@
                         </div>
                         <div class="form-group">
                             <label>Foto</label><br>
-                            <img src="{{ url('uploads/'.$datas->foto) }}" alt="{{ $datas->foto }}" width="300px"/>
+                            <img src="{{ url('uploads/'.$datas->foto) }}" alt="{{ $datas->foto }}" width="300px" class="figure-img img-fluid rounded"/>
+                            <figcaption class="figure-caption">{{ $datas->foto }}</figcaption><br>
                             <input type="file" name="foto" accept=".jpg, .png, .jpeg">
-                        </div>
-                        <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i> UPDATE</button>
+                        </div><br>
+                        <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i> UPDATE </button>
+                        <a href="{{ url('welcome') }}" class="btn btn-danger"><i class="fas fa-times-circle"></i> CANCEL </a>
                         </div>
 
                     </form>

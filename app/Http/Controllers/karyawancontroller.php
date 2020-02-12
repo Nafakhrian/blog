@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use App\Karyawan;
 
 class karyawancontroller extends Controller
 {
     public function welcome() {
 
-    	$table = 'karyawan';
     	$filltable = Karyawan::all();
-    	return view('welcome', compact('table', 'filltable'));
+    	$filltable = Karyawan::paginate(2);
+    	return view('welcome', ['filltable' => $filltable]);
+	}
+
+	public function search(Request $request) {
+		$cari = $request->cari;
+
+		$karyawan = DB::table('karyawan')
+					->where('nik', 'LIKE', "%{$request->srch}%")
+					->orWhere('nama', 'LIKE', "%{$request->srch}%")
+					->orWhere('alamat', 'LIKE', "%{$request->srch}%")
+					->orWhere('email', 'LIKE', "%{$request->srch}%")
+					->paginate();
+		return view('welcome', ['filltable' => $filltable]);
 	}
 
 	public function create() {	

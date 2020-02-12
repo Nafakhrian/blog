@@ -11,38 +11,41 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Tabel karyawan</h6>
-                  <div class="col-md-2">
-                      <fieldset>
-                        <div id="box2" style="margin-left: 80px">
-                            <a class="btn btn-primary" name="btn-insert" href="{{ url('create') }}"> Insert Baru</a>
-                        </div>
-                      </fieldset>
+                  <div style="float: right;">   
+                            <a class="btn btn-primary" name="btn-insert" href="{{ url('create') }}"> <i class="fas fa-plus-circle"></i> INSERT </a>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     
-                    <form class="p-4 mb-4" id="form" autocomplete="off">
+                    <form class="p-4 mb-4" method="get" action="{{ url('search') }}">
+                        <table style="margin-bottom: 10px">
+                            <tr>
+                                <td><button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button></td>
+                                <td><input type="text" class="form-control" name="srch" placeholder="Search..."></td>
+                            </tr>
+                        </table>
                     
                     @if (!empty($filltable))
-                    <table align="center" border="1">
-                        <thead>
-                            <tr style="text-align: center;">
-                                <th width="50px" style="height: 40px">ID</th>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th width="50px" style="height: 40px">#</th>
                                 <th width="90px">NIK</th>
                                 <th width="180px">Nama</th>
                                 <th width="130px">Alamat</th>
-                                <th width="250px">Email</th>
+                                <th width="180px">Email</th>
                                 <th width="120px">Divisi</th>
                                 <th width="100px">Foto</th>
-                                <th width="170px">Action</th>
+                                <th width="110px">Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 0; ?>
                             @foreach($filltable as $table)
                             <?php $no++; ?>
-                            <tr style="text-align: center;">
+                            <tr>
                                 <td>{{ $no }}</td>
                                 <td>{{ $table->nik }}</td>
                                 <td>{{ $table->nama }}</td>
@@ -57,29 +60,34 @@
                                     @endif
                                 </td>
                                 <td><!-- {{ $table->foto }} -->
-                                    <img src="{{ url('uploads/'.$table->foto) }}" width="90px"/>
+                                    <img src="{{ url('uploads/'.$table->foto) }}" style="width: 70px; height: 70px; object-fit: cover;" />
                                 </td>
-                                <td><a class="btn btn-info" name="btn-update" style="margin: 5px; margin-right: 0px; color: #fff" href="{{ url('/update', $table->id) }}"> Update</a>
-                                    <a class="btn btn-danger" name="btn-delete" style="margin: 5px; margin-left: 0px" href="{{ url('/delete', $table->id) }}"> Delete</a></td>
+                                <td><a class="btn btn-info" name="btn-update" href="{{ url('/update', $table->id) }}"> <i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-danger" name="btn-delete" href="{{ url('/delete', $table->id) }}"> <i class="fas fa-trash"></i></a></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <br> {{ $filltable->links() }}
+
+
+                    
 
                     @else
                     <h2>Tidak ada data karyawan</h2>
 
                     @endif
+                    </form>
 
-                </form>
-                    
+
+
                 </div>
+                <!-- <div class="card-footer text-right">
+                    <nav class="d-inline-block">
+                        
+                    </nav>
+                </div> -->
               </div>
-            </div>
-
-           
-            <div class="col-md-6" id="cardSection">
-
             </div>
         </div>
     </div>

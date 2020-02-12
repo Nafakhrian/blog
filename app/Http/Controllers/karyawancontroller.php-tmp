@@ -4,14 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Karyawan;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class karyawancontroller extends Controller {
 	public function welcome() {
 
-		$table     = 'karyawan';
 		$filltable = Karyawan::all();
-		return view('welcome', compact('table', 'filltable'));
+		$filltable = Karyawan::paginate(2);
+		return view('welcome', ['filltable' => $filltable]);
+	}
+
+	public function search(Request $request) {
+		$cari = $request->cari;
+
+		$karyawan = DB::table('karyawan')
+		->where('nik', 'LIKE', "%{$request->srch}%")
+		->orWhere('nama', 'LIKE', "%{$request->srch}%")
+		->orWhere('alamat', 'LIKE', "%{$request->srch}%")
+		->orWhere('email', 'LIKE', "%{$request->srch}%")
+		->paginate();
+		return view('welcome', ['filltable' => $filltable]);
 	}
 
 	public function create() {
