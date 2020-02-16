@@ -97,12 +97,14 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Tabel Divisi</h6>
                   <div style="float: right;">   
-                            <a class="btn btn-primary" name="btn-insert" href="{{ url('createDiv') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DIVISI </a>
+                    <span class="btn-insert-div">
+                        <a class="btn btn-primary" name="btn-insert" href="{{ url('createDiv') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DIVISI </a>
+                    </span>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body col-xl-4">
-                    
+                    <span>Max : 5 Divisi</span>
                     <form class="p-4 mb-4" method="get" action="{{ url('searchDiv') }}">
                     
                     @if (!empty($filltable))
@@ -115,16 +117,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 0; ?>
+                            <?php $noDiv = 0; ?>
                             @foreach($divisi as $div => $divi)
-                            <?php $no++; ?>
+                            <?php $noDiv++; ?>
                             <tr>
-                                <td>{{ $no }}</td>
+                                <td>{{ $noDiv }}</td>
                                 <td>{{ $divi->nama_div }}</td>
                                 <td>
                                     <a class="btn btn-info" name="btn-update" href="{{ url('/updateDiv', $divi->id_div) }}"> <i class="fas fa-pen"></i></a>
                                     <a class="btn btn-danger" name="btn-delete" href="{{ url('/deleteDiv', $divi->id_div) }}" onclick="return confirm('Yakin ingin menghapus data divisi {{ $divi->nama_div}}?')"> <i class="fas fa-trash"></i></a></td>
                             </tr>
+                            <?php 
+                                if ($noDiv >= 5) {
+                                    ?>
+                                        <style type="text/css">
+                                            .btn-insert-div {
+                                              cursor: not-allowed;
+                                              opacity: 0.5;
+                                            }
+                                            .btn-insert-div > a {
+                                              color: currentColor;
+                                              display: inline-block;  /* For IE11/ MS Edge bug */
+                                              pointer-events: none;
+                                              text-decoration: none;
+                                            }
+                                        </style>
+                                    <?php
+                                }
+
+                            ?>
+
                             @endforeach
                         </tbody>
                     </table>

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use App\Divisi;
+use App\Karyawan;
 
 class KaryawanSeeder extends Seeder
 {
@@ -21,5 +23,7 @@ class KaryawanSeeder extends Seeder
         // 	]);
 
         // }
+        factory(\App\Divisi::class, 5)->create();
+        factory(\App\Karyawan::class, 5)->create();
     }
 }

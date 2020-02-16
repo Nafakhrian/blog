@@ -1,5 +1,8 @@
 <?php
 
+use App\Divisi;
+use App\Karyawan;
+
 use Illuminate\Database\Seeder;
 
 class KaryawanSeeder extends Seeder {
@@ -18,5 +21,7 @@ class KaryawanSeeder extends Seeder {
 		// 	]);
 
 		// }
+		factory(\App\Divisi::class , 5)->create();
+		factory(\App\Karyawan::class , 5)->create();
 	}
 }
