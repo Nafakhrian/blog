@@ -10,7 +10,4 @@ class Divisi extends Model
 	protected $primaryKey = 'id_div';
     protected $fillable = ['nama_div'];
 
-    public function karyawan(){
-    	return $this->hasMany('App\Karyawan','divisi','id_div');
-    }
 }

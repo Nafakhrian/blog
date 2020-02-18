@@ -31,14 +31,14 @@
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
-                                <th width="50px" style="height: 40px">#</th>
-                                <th width="90px">NIK</th>
-                                <th width="180px">Nama</th>
-                                <th width="130px">Alamat</th>
-                                <th width="180px">Email</th>
-                                <th width="120px">Divisi</th>
-                                <th width="100px">Foto</th>
-                                <th width="110px">Action</th>
+                                <th width="auto" style="height: 40px">#</th>
+                                <th width="auto">NIK</th>
+                                <th width="auto">Nama</th>
+                                <th width="auto">Alamat</th>
+                                <th width="auto">Email</th>
+                                <th width="auto">Divisi</th>
+                                <th width="auto">Foto</th>
+                                <th width="auto">Action</th>
 
                             </tr>
                         </thead>
@@ -52,12 +52,7 @@
                                 <td>{{ $karyawan->nama }}</td>
                                 <td>{{ $karyawan->alamat }}</td>
                                 <td>{{ $karyawan->email }}</td>
-                                <td>
-                                    @foreach($divisi as $div)
-                                        @if($div->id_div == $karyawan->divisi)
-                                            {{ $div->nama_div }}
-                                        @endif
-                                    @endforeach
+                                <td>{{ $karyawan->Divisi->nama_div }}
                                 </td>
                                 <td>
                                     <img src="{{ url('uploads/'.$karyawan->foto) }}" style="width: 70px; height: 70px; object-fit: cover;" />

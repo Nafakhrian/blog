@@ -18,18 +18,38 @@
 <body style="background-color: #e6e6e6">
 
 	<!-- top bar -->
-    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-        <div class="col-md-12" style="height: 40px; font-size: 15pt; margin-top: 10px">
-            <center>
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" >
+        <div class="col-md-6" style="font-size: 18pt; ">
                 <style>
                     #aa:link {color: black; text-decoration: none;}
                     #aa:visited {color: black; text-decoration: none;}
                     #aa:hover {color: black; text-decoration: none;}
                     #aa:active {color: black; text-decoration: none;}
                 </style>
-                <a href="{{ url('welcome') }}" id="aa"> Data Karyawan NF-Corp. </a>
-            </center>
+                <a href="{{ url('welcome') }}" id="aa"> Data NF-Corp. </a>
         </div>
+        <div class="col-md-6">
+            <div style="float: right;">
+            <ul style="list-style-type: none; margin-top: 10px">
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                        <img class="img-profile rounded-circle" src="{{ url('/img/profile/account.png') }}" style="width: 35px; height: 35px">
+                        <span>&nbsp; {{ auth()->user()->nama}}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-hashtag fa-sm fa-fw mr-2 text-gray-400"></i> {{ auth()->user()->id_user}}
+                        </a>
+                       <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('logout') }}" >
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <br>
     </nav>
     <!-- end top bar -->
 
