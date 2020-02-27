@@ -1,0 +1,87 @@
+body{
+  margin:0;
+  padding:0;
+  background:#DCDCDC; 
+}
+/*Ini adalah untuk mengedit apa yang ada di baris 9-24*/
+.loginbg{
+  width: auto;
+  height: auto;
+  position: absolute;
+  padding:10px 50px;
+  background: #FFFFFF;
+  left:50%;
+  top:50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FF0000;
+  padding-bottom: 60px;
+  padding-top: 50px;
+}
+.login_icon{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background: #bebebe;
+  border-radius: 100px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.login_icon>img{
+  width: 100px
+  height: 100px;
+  overflow: hidden;
+}
+.box{
+  margin-bottom: 5px;
+}
+a{
+float: right;
+text-decoration: none;
+color: 
+}
+input[type="name"]{
+  padding: 10px;
+  font-size: 10px;
+  width: 400px;
+  border-radius: 6px;
+}
+
+input[type="password"]{
+  padding: 10px;
+  font-size: 10px;
+  width: 400px;
+  border-radius: 6px;
+}
+input[type="passwordx"]{
+  padding: 10px;
+  font-size: 10px;
+  width: 400px;
+  border-radius: 6px;
+}
+input[type="email"]{
+  padding: 10px;
+  font-size: 10px;
+  width: 400px;
+  border-radius: 6px;
+}
+input[type="date"]{
+  padding: 10px;
+  font-size: 10px;
+  width: 200px;
+  border-radius: 6px;
+}
+.login
+{
+  padding: 10px;
+  font-size: 12pt;
+  background: #FF0000;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  width: 300px;
+  cursor: pointer;
+}

@@ -1,0 +1,24 @@
+.button-group input{
+  display: none;
+}
+
+.button-group input:checked + label,
+.button-group input:checked + label:active {
+  color: #fff;
+  background-color: #2e59d9;
+  border-color: #2653d4;
+}
+/*.button
+{
+  margin-top: 3px;
+  padding-top: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 7px;
+  background: #686868;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: normal; 
+}*/

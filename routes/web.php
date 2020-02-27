@@ -19,18 +19,23 @@ Route::get('/logout', 'usercontroller@logout');
 
 
 Route::group(['middleware' => 'auth'], function(){
-	Route::get('/', 'karyawancontroller@welcome');
+	// Route::get('/', 'karyawancontroller@welcome');
 	Route::get('/welcome', 'karyawancontroller@welcome');
-	Route::get('/search', 'karyawancontroller@search');
 	Route::get('/create', 'karyawancontroller@create');
 	Route::post('/store', 'karyawancontroller@store');
 	Route::get('/delete/{id}', 'karyawancontroller@delete');
 	Route::get('/update/{id}', 'karyawancontroller@update');
 	Route::post('/updateStore/{id}', 'karyawancontroller@updateStore');
 
+	Route::get('/divisi', 'divisicontroller@welcome');
 	Route::get('/createDiv', 'divisicontroller@create');
 	Route::post('/storeDiv', 'divisicontroller@store');
 	Route::get('/deleteDiv/{id}', 'divisicontroller@delete');
 	Route::get('/updateDiv/{id}', 'divisicontroller@update');
 	Route::post('/updateStoreDiv/{id}', 'divisicontroller@updateStore');
+
+	Route::get('/user', 'usercontroller@welcome');
+	Route::get('/createUser', 'usercontroller@create');
+	Route::post('/storeUser', 'usercontroller@storeUser');
+	Route::get('/deleteUser/{id}', 'usercontroller@delete');
 });

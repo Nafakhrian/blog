@@ -14,25 +14,31 @@ use App\Divisi;
 
 class karyawancontroller extends Controller
 {
-    public function welcome() {
+    public function welcome(Request $request) {
 
-    	$filltable = Karyawan::all();
-    	$filltable = Karyawan::paginate(3);
-    	$divisi = Divisi::all();
-    	return view('welcome', ['filltable' => $filltable], compact('filltable', 'divisi'));
+    	// $filltable = Karyawan::all();
+    	// $filltable = Karyawan::paginate(3);
+    	// $divisi = Divisi::all();
+    	// return view('welcome', ['filltable' => $filltable], compact('filltable', 'divisi'));
+
+    	$filltable = Karyawan::when($request->search, function($query) use($request){
+    		$query->where('nama', 'LIKE', '%'.$request->search.'%');
+    	})->paginate(3);
+
+    	return view('welcome', compact('filltable'));
 	}
 
-	public function search(Request $request) {
-		$cari = $request->cari;
+	// public function search(Request $request) {
+	// 	$cari = $request->cari;
 
-		$karyawan = DB::table('karyawan')
-					->where('nik', 'LIKE', "%{$request->srch}%")
-					->orWhere('nama', 'LIKE', "%{$request->srch}%")
-					->orWhere('alamat', 'LIKE', "%{$request->srch}%")
-					->orWhere('email', 'LIKE', "%{$request->srch}%")
-					->paginate();
-		return view('welcome', ['filltable' => $filltable]);
-	}
+	// 	$karyawan = DB::table('karyawan')
+	// 				->where('nik', 'LIKE', "%{$request->search}%")
+	// 				->orWhere('nama', 'LIKE', "%{$request->search}%")
+	// 				->orWhere('alamat', 'LIKE', "%{$request->search}%")
+	// 				->orWhere('email', 'LIKE', "%{$request->search}%")
+	// 				->paginate();
+	// 	return view('welcome', ['filltable' => $filltable]);
+	// }
 
 	public function create() {	
 		$divisi = Divisi::all();

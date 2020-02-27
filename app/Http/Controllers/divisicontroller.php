@@ -8,6 +8,21 @@ use App\Divisi;
 
 class divisicontroller extends Controller
 {
+
+	public function welcome(Request $request) {
+
+    	// $filltable = Divisi::all();
+    	// $filltable = Divisi::paginate(3);
+    	// return view('divisi', ['filltable' => $filltable], compact('filltable'));
+
+		$filltable = Divisi::when($request->search, function($query) use($request){
+    		$query->where('nama_div', 'LIKE', '%'.$request->search.'%');
+    	})->paginate(3);
+
+    	return view('divisi', compact('filltable'));
+
+	}
+
     public function create() {	
 		$divisi = Divisi::all();
     	return view('createDiv', compact('divisi'));
@@ -22,7 +37,7 @@ class divisicontroller extends Controller
 			'nama_div' => $request->nama_div
 		]);
 
-    	return redirect('/welcome');
+    	return redirect('divisi');
 	}
 
 	public function delete($id_div){
@@ -30,7 +45,7 @@ class divisicontroller extends Controller
 		$delete = Divisi::find($id_div);
     	$delete->delete();
 
-    	return redirect('welcome');
+    	return redirect('divisi');
 	}
 
 	public function update($id_div){
@@ -52,6 +67,6 @@ class divisicontroller extends Controller
 	    $update->nama_div = $request['nama_div'];
 	    $update->update();
 		
-    	return redirect('welcome');
+    	return redirect('divisi');
 	}
 }

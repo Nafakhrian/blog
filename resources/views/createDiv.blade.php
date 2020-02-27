@@ -33,7 +33,7 @@
                             <input type="text" class="form-control" name="nama_div" id="nama_div" placeholder="Masukan Nama" required>
                         </div>
                         <button type="submit" id="button1" class="btn btn-primary"><i class="fas fa-plus-circle"></i> INSERT</button>
-                        <a href="{{ url('welcome') }}" class="btn btn-danger"><i class="fas fa-times-circle"></i> CANCEL </a>
+                        <a href="{{ url('divisi') }}" class="btn btn-danger"><i class="fas fa-times-circle"></i> CANCEL </a>
                     </div>
 
                     </form>
