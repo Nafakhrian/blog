@@ -39,3 +39,5 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/storeUser', 'usercontroller@storeUser');
 	Route::get('/deleteUser/{id}', 'usercontroller@delete');
 });
+
+Route::get('/', 'landingcontroller@index');
