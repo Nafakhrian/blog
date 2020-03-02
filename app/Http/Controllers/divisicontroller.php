@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Divisi;
 
+use App\Exports\DivisiExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class divisicontroller extends Controller
 {
 
@@ -68,5 +71,9 @@ class divisicontroller extends Controller
 	    $update->update();
 		
     	return redirect('divisi');
+	}
+
+	public function export_excel(){
+		return Excel::download(new DivisiExport, date('d-m-Y_').'divisi_'.date('h-ia').'.xlsx');
 	}
 }

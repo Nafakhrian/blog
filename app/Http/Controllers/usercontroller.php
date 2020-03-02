@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class usercontroller extends Controller
 {
     public function index(){
@@ -89,5 +92,9 @@ class usercontroller extends Controller
     public function logout(){
         Auth::logout();
         return redirect('login') ;
+    }
+
+    public function export_excel(){
+        return Excel::download(new UserExport, date('d-m-Y_').'user_'.date('h-ia').'.xlsx');
     }
 }

@@ -12,6 +12,10 @@ use App\Http\Controllers\Controller;
 use App\Karyawan;
 use App\Divisi;
 
+
+use App\Exports\KaryawanExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class karyawancontroller extends Controller
 {
     public function welcome(Request $request) {
@@ -126,5 +130,9 @@ class karyawancontroller extends Controller
 
 
     	return redirect('welcome');
+	}
+
+	public function export_excel(){
+		return Excel::download(new KaryawanExport, date('d-m-Y_').'karyawan_'.date('h-ia').'.xlsx');
 	}
 }

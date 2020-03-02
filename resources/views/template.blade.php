@@ -70,7 +70,17 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider" my-0>
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item" style="margin-left: 10px">
+        <a class="nav-link" href="{{ url('/cetak_pdf') }}" onclick="return confirm('Ingin download laporan PDF?')">
+          <i class="fa fa-file-pdf" style="font-size: 13pt"></i>
+          <span style="font-size: 13pt">Download PDF</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Charts -->
       <li class="nav-item" style="margin-left: 10px">
@@ -108,7 +118,7 @@
                                     <span>&nbsp; {{ auth()->user()->nama}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="">
                                         <i class="fas fa-hashtag fa-sm fa-fw mr-2 text-gray-400"></i> {{ auth()->user()->id_user }}
                                     </a>
                                    <div class="dropdown-divider"></div>
