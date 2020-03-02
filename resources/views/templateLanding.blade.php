@@ -33,64 +33,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('welcome') }}">
-        <div class="sidebar-brand-icon">
-          <img class="img-profile rounded-circle" src="{{ url('/img/profile/nf.png') }}" style="width: 50px; height: 50px;">
-        </div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item" style="margin-left: 10px">
-        <a class="nav-link" href="{{ url('welcome') }}">
-          <i class="fa fa-folder" style="font-size: 13pt"></i>
-          <span style="font-size: 13pt">Karyawan</span></a>
-      </li>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item" style="margin-left: 10px">
-        <a class="nav-link" href="{{ url('divisi') }}">
-          <i class="fas fa-tag" style="font-size: 13pt"></i>
-          <span style="font-size: 13pt">Divisi</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item" style="margin-left: 10px">
-        <a class="nav-link" href="{{ url('user') }}">
-          <i class="fas fa-user" style="font-size: 13pt"></i>
-          <span style="font-size: 13pt">User</span>
-        </a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item" style="margin-left: 10px">
-        <a class="nav-link" href="{{ url('/cetak_pdf') }}" onclick="return confirm('Ingin download laporan PDF?')">
-          <i class="fa fa-file-pdf" style="font-size: 13pt"></i>
-          <span style="font-size: 13pt">Download PDF</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item" style="margin-left: 10px">
-        <a class="nav-link" href="{{ url('logout') }}" onclick="return confirm('Yakin ingin logout {{ auth()->user()->nama }}?')">
-          <i class="fas fa-times" style="font-size: 13pt"></i>
-          <span style="font-size: 13pt">Logout</span></a>
-      </li>
-
-    </ul>
-    <!-- End of Sidebar -->
+      
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -111,23 +54,8 @@
                     </div>
                     <div class="col-md-6">
                         <div style="float: right;">
-                        <ul style="list-style-type: none; margin-top: 10px">
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-                                    <img class="img-profile rounded-circle" src="{{ url('/img/profile/account.png') }}" style="width: 35px; height: 35px">
-                                    <span>&nbsp; {{ auth()->user()->nama}}</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="">
-                                        <i class="fas fa-hashtag fa-sm fa-fw mr-2 text-gray-400"></i> {{ auth()->user()->id_user }}
-                                    </a>
-                                   <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ url('logout') }}" onclick="return confirm('Yakin ingin logout {{ auth()->user()->nama }}?')">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+                          <a href="{{ url('login') }}" class="btn btn-link" style="width: 150px; text-align: right;">Login</a>
+                          <a href="{{ url('register') }}" class="btn btn-link" style="width: 150px;">Register</a>
                         </div>
                     </div>
                     <br>

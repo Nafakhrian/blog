@@ -14,7 +14,8 @@
                   <h6 class="m-0 font-weight-bold text-primary">Tabel User</h6>
                   <div style="float: right;">
                     <span>
-                        <a class="btn btn-primary" name="btn-insert" href="{{ url('createUser') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD USER </a>
+                        <a href="{{ url('/user/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
+                        <a class="btn btn-primary" name="btn-insert" href="{{ url('createUser') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DATA</a>
                     </span>
                   </div>
                 </div>

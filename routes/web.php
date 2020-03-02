@@ -17,7 +17,6 @@ Route::get('/register', 'usercontroller@register');
 Route::post('/storeLogin', 'usercontroller@store');
 Route::get('/logout', 'usercontroller@logout');
 
-
 Route::group(['middleware' => 'auth'], function(){
 	// Route::get('/', 'karyawancontroller@welcome');
 	Route::get('/welcome', 'karyawancontroller@welcome');
@@ -38,4 +37,14 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/createUser', 'usercontroller@create');
 	Route::post('/storeUser', 'usercontroller@storeUser');
 	Route::get('/deleteUser/{id}', 'usercontroller@delete');
+
 });
+
+Route::get('/', 'landingcontroller@index');
+
+Route::get('/cetak_pdf', 'landingcontroller@cetak_pdf');
+Route::get('/pdf', 'landingcontroller@buka');
+
+Route::get('/karyawan/export_excel', 'karyawancontroller@export_excel');
+Route::get('/divisi/export_excel', 'divisicontroller@export_excel');
+Route::get('/user/export_excel', 'usercontroller@export_excel');

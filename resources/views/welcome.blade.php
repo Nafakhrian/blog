@@ -11,10 +11,11 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Tabel Karyawan</h6>
+                  <h5 class="m-0 font-weight-bold text-primary">Tabel Karyawan</h5>
                   <div style="float: right;">   
                     <span>
-                        <a class="btn btn-primary" name="btn-insert" href="{{ url('create') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD KARYAWAN </a>
+                        <a href="{{ url('/karyawan/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
+                        <a class="btn btn-primary" name="btn-insert" href="{{ url('create') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DATA</a>
                     </span>
                   </div>
                 </div>
@@ -28,7 +29,7 @@
                                 <td><input type="text" class="form-control" name="search" placeholder="Search..."></td>
                             </tr>
                         </table>
-                    
+                    ll
                     @if (!empty($filltable))
                     <table class="table">
                         <thead class="thead-light">
