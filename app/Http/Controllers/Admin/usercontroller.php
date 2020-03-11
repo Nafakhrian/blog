@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +22,7 @@ class usercontroller extends Controller
             $query->where('nama', 'LIKE', '%'.$request->search.'%');
         })->paginate(3);
 
-        return view('user', compact('filltable'));
+        return view('user.user', compact('filltable'));
 
         // $filltable = User::all();
         // $filltable = User::paginate(3);
@@ -46,7 +46,7 @@ class usercontroller extends Controller
 
     public function create(){
         $user = User::all();
-        return view('createUser', compact('user'));
+        return view('user.createUser', compact('user'));
     }
 
     public function store(Request $request){

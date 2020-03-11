@@ -1,4 +1,4 @@
-@extends('templateLog')
+@extends('layout.templateLog')
 
 
 @section('contentLog')

@@ -11,40 +11,39 @@
 |
 */
 
-Route::get('/login', 'usercontroller@index')->name('login');
-Route::post('/postLogin', 'usercontroller@postLogin');
-Route::get('/register', 'usercontroller@register');
-Route::post('/storeLogin', 'usercontroller@store');
-Route::get('/logout', 'usercontroller@logout');
+Route::get('/login', 'Admin\usercontroller@index')->name('login');
+Route::post('/postLogin', 'Admin\usercontroller@postLogin');
+Route::get('/register', 'Admin\usercontroller@register');
+Route::post('/storeLogin', 'Admin\usercontroller@store');
+Route::get('/logout', 'Admin\usercontroller@logout');
 
 Route::group(['middleware' => 'auth'], function(){
 	// Route::get('/', 'karyawancontroller@welcome');
-	Route::get('/welcome', 'karyawancontroller@welcome');
-	Route::get('/create', 'karyawancontroller@create');
-	Route::post('/store', 'karyawancontroller@store');
-	Route::get('/delete/{id}', 'karyawancontroller@delete');
-	Route::get('/update/{id}', 'karyawancontroller@update');
-	Route::post('/updateStore/{id}', 'karyawancontroller@updateStore');
+	Route::get('/welcome', 'Admin\karyawancontroller@welcome');
+	Route::get('/create', 'Admin\karyawancontroller@create');
+	Route::post('/store', 'Admin\karyawancontroller@store');
+	Route::get('/delete/{id}', 'Admin\karyawancontroller@delete');
+	Route::get('/update/{id}', 'Admin\karyawancontroller@update');
+	Route::post('/updateStore/{id}', 'Admin\karyawancontroller@updateStore');
 
-	Route::get('/divisi', 'divisicontroller@welcome');
-	Route::get('/createDiv', 'divisicontroller@create');
-	Route::post('/storeDiv', 'divisicontroller@store');
-	Route::get('/deleteDiv/{id}', 'divisicontroller@delete');
-	Route::get('/updateDiv/{id}', 'divisicontroller@update');
-	Route::post('/updateStoreDiv/{id}', 'divisicontroller@updateStore');
+	Route::get('/divisi', 'Admin\divisicontroller@welcome');
+	Route::get('/createDiv', 'Admin\divisicontroller@create');
+	Route::post('/storeDiv', 'Admin\divisicontroller@store');
+	Route::get('/deleteDiv/{id}', 'Admin\divisicontroller@delete');
+	Route::get('/updateDiv/{id}', 'Admin\divisicontroller@update');
+	Route::post('/updateStoreDiv/{id}', 'Admin\divisicontroller@updateStore');
 
-	Route::get('/user', 'usercontroller@welcome');
-	Route::get('/createUser', 'usercontroller@create');
-	Route::post('/storeUser', 'usercontroller@storeUser');
-	Route::get('/deleteUser/{id}', 'usercontroller@delete');
+	Route::get('/user', 'Admin\usercontroller@welcome');
+	Route::get('/createUser', 'Admin\usercontroller@create');
+	Route::post('/storeUser', 'Admin\usercontroller@storeUser');
+	Route::get('/deleteUser/{id}', 'Admin\usercontroller@delete');
 
 });
 
 Route::get('/', 'landingcontroller@index');
-
 Route::get('/cetak_pdf', 'landingcontroller@cetak_pdf');
 Route::get('/pdf', 'landingcontroller@buka');
 
-Route::get('/karyawan/export_excel', 'karyawancontroller@export_excel');
-Route::get('/divisi/export_excel', 'divisicontroller@export_excel');
-Route::get('/user/export_excel', 'usercontroller@export_excel');
+Route::get('/karyawan/export_excel', 'Admin\karyawancontroller@export_excel');
+Route::get('/divisi/export_excel', 'Admin\divisicontroller@export_excel');
+Route::get('/user/export_excel', 'Admin\usercontroller@export_excel');

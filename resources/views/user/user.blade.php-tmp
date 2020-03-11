@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 
 @section('content')
@@ -6,22 +6,22 @@
     <div class="container-fluid ">
         <div class="row">
 
-            <!-- Divisi -->
+            <!-- User -->
             <div class="col-xl-12 " >
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h5 class="m-0 font-weight-bold text-primary">Tabel Divisi</h5>
-                  <div style="float: right;">   
+                  <h5 class="m-0 font-weight-bold text-primary">Tabel User</h5>
+                  <div style="float: right;">
                     <span>
-                        <a href="{{ url('/divisi/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
-                        <a class="btn btn-primary" name="btn-insert" href="{{ url('createDiv') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DATA</a>
+                        <a href="{{ url('/user/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
+                        <a class="btn btn-primary" name="btn-insert" href="{{ url('createUser') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DATA</a>
                     </span>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body col-xl-4">
-                    <form class="p-4 mb-4" method="get" action="{{ url('divisi') }}">
+                    <form class="p-4 mb-4" method="get" action="{{ url('user') }}">
                         <table style="margin-bottom: 10px">
                             <tr>
                                 <td><button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button></td>
@@ -34,20 +34,23 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="50px" style="height: 40px">#</th>
-                                <th width="200px">Nama</th>
-                                <th width="150px">Action</th>
+                                <th width="250px">Nama</th>
+                                <th width="200px">Username</th>
+                                <th >Password</th>
+                                <th width="200px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $noDiv = 0; ?>
-                            @foreach($filltable as $div => $divi)
-                            <?php $noDiv++; ?>
-                            <tr>
-                                <td>{{ $noDiv }}</td>
-                                <td>{{ $divi->nama_div }}</td>
+<?php $noUser = 0;?>
+@foreach($filltable as $use => $user)
+<?php $noUser++;?>
+<tr>
+                                <td>{{ $noUser }}</td>
+                                <td>{{ $user->nama }}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->password }}</td>
                                 <td>
-                                    <a class="btn btn-info" name="btn-update" href="{{ url('/updateDiv', $divi->id_div) }}"> <i class="fas fa-pen"></i></a>
-                                    <a class="btn btn-danger" name="btn-delete" href="{{ url('/deleteDiv', $divi->id_div) }}" onclick="return confirm('Yakin ingin menghapus data divisi {{ $divi->nama_div}}?')"> <i class="fas fa-trash"></i></a></td>
+                                    <a class="btn btn-danger" name="btn-delete" href="{{ url('/deleteUser', $user->id_user) }}" onclick="return confirm('Yakin ingin menghapus data user {{ $user->nama}}?')"> <i class="fas fa-trash"></i></a></td>
                             </tr>
 
                             @endforeach
@@ -55,7 +58,7 @@
                     </table>{{ $filltable->links() }}
 
 
-                    
+
 
                     @else
                     <h2>Tidak ada data divisi</h2>
@@ -68,7 +71,7 @@
                 </div>
                 <!-- <div class="card-footer text-right">
                     <nav class="d-inline-block">
-                        
+
                     </nav>
                 </div> -->
               </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -29,7 +29,7 @@ class karyawancontroller extends Controller
     		$query->where('nama', 'LIKE', '%'.$request->search.'%');
     	})->paginate(3);
 
-    	return view('welcome', compact('filltable'));
+    	return view('karyawan.welcome', compact('filltable'));
 	}
 
 	// public function search(Request $request) {
@@ -46,7 +46,7 @@ class karyawancontroller extends Controller
 
 	public function create() {	
 		$divisi = Divisi::all();
-    	return view('create', compact('divisi'));
+    	return view('karyawan.create', compact('divisi'));
 	}
 
 	public function store(Request $request) {	
@@ -89,7 +89,7 @@ class karyawancontroller extends Controller
                     ->where('id', '=', $id)
     				->first();
     	$divisi = Divisi::all();
-    	return view('update', compact('datas', 'divisi'));
+    	return view('karyawan.update', compact('datas', 'divisi'));
 	}
 
 	public function updateStore($id,Request $request){

@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 
 @section('content')
@@ -65,12 +65,12 @@
                         </div>
 
                     </form>
-
+                    
                 </div>
               </div>
             </div>
 
-
+           
         </div>
     </div>
     <!-- end main content -->

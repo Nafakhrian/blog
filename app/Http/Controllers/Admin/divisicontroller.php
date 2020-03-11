@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,13 +22,13 @@ class divisicontroller extends Controller
     		$query->where('nama_div', 'LIKE', '%'.$request->search.'%');
     	})->paginate(3);
 
-    	return view('divisi', compact('filltable'));
+    	return view('divisi.divisi', compact('filltable'));
 
 	}
 
     public function create() {	
 		$divisi = Divisi::all();
-    	return view('createDiv', compact('divisi'));
+    	return view('divisi.createDiv', compact('divisi'));
 	}
 
 	public function store(Request $request) {	
@@ -55,7 +55,7 @@ class divisicontroller extends Controller
 		$datas = Divisi::select('id_div','nama_div')
                     ->where('id_div', '=', $id_div)
     				->first();
-    	return view('updateDiv', compact('datas'));
+    	return view('divisi.updateDiv', compact('datas'));
 	}
 
 	public function updateStore($id_div,Request $request){

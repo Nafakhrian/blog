@@ -12,14 +12,9 @@ use PDF;
 class landingcontroller extends Controller
 {
     public function index(Request $request){
+        $karyawan = Karyawan::all();
 
-        $fillkaryawan = Karyawan::when($request->search, function($query) use($request){
-    		$query->where('nama', 'LIKE', '%'.$request->search.'%');
-    	})->paginate(3);
-    	$filldivisi = Divisi::all();
-    	$filluser = User::all();
-
-    	return view('landing', compact('filldivisi', 'fillkaryawan', 'filluser'));
+    	return view('landing', compact('karyawan'));
     }
 
     public function buka(){

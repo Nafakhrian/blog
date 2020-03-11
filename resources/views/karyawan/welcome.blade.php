@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 
 @section('content')
@@ -12,7 +12,7 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h5 class="m-0 font-weight-bold text-primary">Tabel Karyawan</h5>
-                  <div style="float: right;">
+                  <div style="float: right;">   
                     <span>
                         <a href="{{ url('/karyawan/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
                         <a class="btn btn-primary" name="btn-insert" href="{{ url('create') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DATA</a>
@@ -21,7 +21,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-
+                    
                     <form class="p-4 mb-4" method="get" action="{{ url('welcome') }}">
                         <table style="margin-bottom: 10px">
                             <tr>
@@ -29,7 +29,6 @@
                                 <td><input type="text" class="form-control" name="search" placeholder="Search..."></td>
                             </tr>
                         </table>
-                    ll
                     @if (!empty($filltable))
                     <table class="table">
                         <thead class="thead-light">
@@ -46,10 +45,10 @@
                             </tr>
                         </thead>
                         <tbody>
-<?php $no = 0;?>
-@foreach($filltable as $table => $karyawan)
-<?php $no++;?>
-<tr>
+                            <?php $no = 0; ?>
+                            @foreach($filltable as $table => $karyawan)
+                            <?php $no++; ?>
+                            <tr>
                                 <td>{{ $no }}</td>
                                 <td>{{ $karyawan->nik }}</td>
                                 <td>{{ $karyawan->nama }}</td>
@@ -69,7 +68,7 @@
                     </table>{{ $filltable->links() }}
 
 
-
+                    
 
                     @else
                     <h2>Tidak ada data karyawan</h2>
@@ -82,7 +81,7 @@
                 </div>
                 <!-- <div class="card-footer text-right">
                     <nav class="d-inline-block">
-
+                        
                     </nav>
                 </div> -->
               </div>

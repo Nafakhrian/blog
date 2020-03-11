@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 
 @section('content')
@@ -40,12 +40,12 @@
                         </div>
 
                     </form>
-                    
+
                 </div>
               </div>
             </div>
 
-           
+
             <div class="col-md-6" id="cardSection">
 
             </div>

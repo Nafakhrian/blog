@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout.template')
 
 
 @section('content')
@@ -6,12 +6,12 @@
     <div class="container-fluid ">
         <div class="row">
 
-            <!-- Divisi -->
+            <!-- User -->
             <div class="col-xl-12 " >
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Tabel User</h6>
+                  <h5 class="m-0 font-weight-bold text-primary">Tabel User</h5>
                   <div style="float: right;">   
                     <span>
                         <a href="{{ url('/user/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
@@ -34,7 +34,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="50px" style="height: 40px">#</th>
-                                <th width="200px">Nama</th>
+                                <th width="250px">Nama</th>
                                 <th width="200px">Username</th>
                                 <th >Password</th>
                                 <th width="200px">Action</th>
