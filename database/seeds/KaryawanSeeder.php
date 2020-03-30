@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
-use App\Divisi;
 use App\Karyawan;
+use Faker\Factory as Faker;
 
 class KaryawanSeeder extends Seeder
 {
@@ -14,16 +13,6 @@ class KaryawanSeeder extends Seeder
      */
     public function run()
     {
-        // $faker = Faker::create('id_ID');
-
-        // for ($i=1; $i <= 100 ; $i++) { 
-        	
-        // 	DB::table('karyawan')->insert([
-        // 		'nama' => 
-        // 	]);
-
-        // }
-        factory(\App\Divisi::class, 5)->create();
-        factory(\App\Karyawan::class, 5)->create();
+        Factory(App\Karyawan::class,20)->create();
     }
 }

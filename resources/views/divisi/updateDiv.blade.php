@@ -1,4 +1,4 @@
-@extends('layout.template')
+@extends('layout.templateUpdate')
 
 
 @section('content')
@@ -13,7 +13,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Update Tabel Divisi</h6>
                 </div>
                 <!-- Card Body -->
-                <div class="card-body">
+                <div class="card-body  col-xl-10">
                     @if(count($errors) > 0)
                         <div class="alert alert-danger">
                             Upload Validation Error
@@ -40,12 +40,12 @@
                         </div>
 
                     </form>
-                    
+
                 </div>
               </div>
             </div>
 
-           
+
             <div class="col-md-6" id="cardSection">
 
             </div>

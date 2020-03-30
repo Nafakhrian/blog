@@ -12,7 +12,7 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h5 class="m-0 font-weight-bold text-primary">Tabel User</h5>
-                  <div style="float: right;">   
+                  <div style="float: right;">
                     <span>
                         <a href="{{ url('/user/export_excel') }}" class="btn btn-success my-3" target="_blank"><i class="fas fa-arrow-circle-down"></i> &nbsp;DOWNLOAD</a>
                         <a class="btn btn-primary" name="btn-insert" href="{{ url('createUser') }}"> <i class="fas fa-plus-circle"></i> &nbsp; ADD DATA</a>
@@ -20,7 +20,7 @@
                   </div>
                 </div>
                 <!-- Card Body -->
-                <div class="card-body col-xl-4">
+                <div class="card-body col-xl-10">
                     <form class="p-4 mb-4" method="get" action="{{ url('user') }}">
                         <table style="margin-bottom: 10px">
                             <tr>
@@ -28,7 +28,7 @@
                                 <td><input type="text" class="form-control" name="search" placeholder="Search..."></td>
                             </tr>
                         </table>
-                    
+
                     @if (!empty($filltable))
                     <table class="table">
                         <thead class="thead-light">
@@ -58,7 +58,7 @@
                     </table>{{ $filltable->links() }}
 
 
-                    
+
 
                     @else
                     <h2>Tidak ada data divisi</h2>
@@ -71,7 +71,7 @@
                 </div>
                 <!-- <div class="card-footer text-right">
                     <nav class="d-inline-block">
-                        
+
                     </nav>
                 </div> -->
               </div>
